@@ -1,1 +1,15 @@
-<marquee>hi</marquee>
+{% block content %}
+<form action="/name-enter/" method="post">
+    {% csrf_token %}
+    {{ myform }}
+    <input type="submit" value="Submit" />
+</form>
+
+{% for post in posts %}
+<h2>{{ post.text}}</h2>
+<p>{{ post.tag }}</p>
+{% endfor %}
+
+{% for user in users %}
+	{% include "usertemplate.html" %}
+{% endfor %}

@@ -10,8 +10,8 @@ class Post(models.Model):
 
 class User(models.Model):
 	name = models.CharField(max_length=25)
-	birthday = models.DateField()
-	score = models.SmallIntegerField()
+	birthday = models.DateField(null=True)
+	score = models.SmallIntegerField(null=True)
 	email = models.CharField(max_length=30)
-	password = models.CharField(max_length=20)
-	posts = models.ForeignKey('Post')
+	password = models.CharField(max_length=20, null=True)
+	Posts = models.ForeignKey('Post', null=True)
